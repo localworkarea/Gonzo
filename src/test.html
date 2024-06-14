@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="uk">
+	@@include('html/_head.htm',{
+	"title":"Gonzo | Test"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('html/_header.htm',{})
+			<main class="page">
+				<section class="test">
+					<div class="test__bg bg-full">
+						<picture>
+							<source srcset="@img/bg/bg-pc.jpg" media="(min-width: 30.061em)" type="image/webp">
+							<source srcset="@img/bg/black-mob.jpg" media="(max-width: 30.061em)" type="image/webp">
+							<img class="ibg" src="@img/bg/bg-pc.jpg" width="1440" height="800" alt="image">
+						</picture>
+					</div>
+					<div class="test__container">
+						<div class="test__wrapper">
+							<h1 class="test__title title-main split-both">
+								6 питань —<br> і твій рецепт готовий
+							</h1>
+							<div class="test__body">
+								<form data-dev class="test__form form">
+									<div class="form__section">
+											<div class="form__question">
+													<p class="form__label">Ти в центрі уваги. Яка твоя тактика для зачарування публіки?</p>
+													<div class="options">
+															<div class="options__item">
+																	<input id="answer1_1" type="radio" value="answer1_1" name="question1" class="options__input">
+																	<label for="answer1_1" class="options__label">
+																			<span>1</span> Обираю найсумнішу пісню і співаю так, що аж стіни плачуть.
+																	</label>
+															</div>
+															<div class="options__item">
+																	<input id="answer1_2" type="radio" value="answer1_2" name="question1" class="options__input">
+																	<label for="answer1_2" class="options__label">
+																		<span>2</span> Ситуаційний репчик з авторськими імпровізаціями, де згадую всіх друзів.
+																	</label>
+															</div>
+															<div class="options__item">
+																	<input id="answer1_3" type="radio" value="answer1_3" name="question1" class="options__input">
+																	<label for="answer1_3" class="options__label">
+																		<span>3</span> Співаю "Happy Birthday", бо нічого іншого не згадав.
+																	</label>
+															</div>
+													</div>
+											</div>
+											<div class="form__footer">
+													<div class="form__count">1/6</div>
+													<button type="button" class="form__btn btn" aria-label="далі">Далі</button>
+											</div>
+									</div>
+							
+									<div class="form__section">
+											<div class="form__question">
+													<p class="form__label">Що ти робиш, коли в магазині закінчився твій улюблений снек?</p>
+													<div class="options">
+															<div class="options__item">
+																	<input id="answer2_1" type="radio" value="answer1_1" name="question2" class="options__input">
+																	<label for="answer2_1" class="options__label">
+																			<span>1</span> Починаю депресивний монолог, бо "пропало всьо".
+																	</label>
+															</div>
+															<div class="options__item">
+																	<input id="answer2_2" type="radio" value="answer1_2" name="question2" class="options__input">
+																	<label for="answer2_2" class="options__label">
+																			<span>2</span> Організовую пошуковий загін в кінець вітрини.
+																	</label>
+															</div>
+															<div class="options__item">
+																	<input id="answer2_3" type="radio" value="answer1_3" name="question2" class="options__input">
+																	<label for="answer2_3" class="options__label">
+																			<span>3</span> Дзвоню мамі, бо тільки вона розуміє мій біль.
+																	</label>
+															</div>
+													</div>
+											</div>
+											<div class="form__footer">
+													<div class="form__count">2/6</div>
+													<button type="button" class="form__btn btn" aria-label="далі">Далі</button>
+											</div>
+									</div>
+							
+									<div class="form__section">
+											<div class="form__question">
+													<p class="form__label">Ти опинився на безлюдному острові. Що зробиш?</p>
+													<div class="options">
+															<div class="options__item">
+																	<input id="answer3_1" type="radio" value="answer1_1" name="question3" class="options__input">
+																	<label for="answer3_1" class="options__label">
+																			<span>1</span> Влаштую конкурс краси між мною і крабами.
+																	</label>
+															</div>
+															<div class="options__item">
+																	<input id="answer3_2" type="radio" value="answer1_2" name="question3" class="options__input">
+																	<label for="answer3_2" class="options__label">
+																			<span>2</span> Проголошу себе королем острова, моя перша і остання нерухомість.
+																	</label>
+															</div>
+															<div class="options__item">
+																	<input id="answer3_3" type="radio" value="answer1_3" name="question3" class="options__input">
+																	<label for="answer3_3" class="options__label">
+																			<span>3</span> Почну відеоблог про виживання прямо з пальми.
+																	</label>
+															</div>
+													</div>
+											</div>
+											<div class="form__footer">
+													<div class="form__count">3/6</div>
+													<button type="button" class="form__btn btn" aria-label="далі">Далі</button>
+											</div>
+									</div>
+							
+									<div class="form__section">
+											<div class="form__question">
+													<p class="form__label">Як ти готуєшся до важливої події?</p>
+													<div class="options">
+															<div class="options__item">
+																	<input id="answer4_1" type="radio" value="answer1_1" name="question4" class="options__input">
+																	<label for="answer4_1" class="options__label">
+																			<span>1</span> Сусідів чекає черговий Х-Фактор з мого душу: тільки улюблені треки, ароматичні свічки і я.
+																	</label>
+															</div>
+															<div class="options__item">
+																	<input id="answer4_2" type="radio" value="answer1_2" name="question4" class="options__input">
+																	<label for="answer4_2" class="options__label">
+																			<span>2</span> Репетирую свої жарти з котом, щоб переконатися, що з них можна посміятися.
+																	</label>
+															</div>
+															<div class="options__item">
+																	<input id="answer4_3" type="radio" value="answer1_3" name="question4" class="options__input">
+																	<label for="answer4_3" class="options__label">
+																			<span>3</span> Обираю одяг, де якомога більше кольорів, щоб затьмарити всіх на події.
+																	</label>
+															</div>
+													</div>
+											</div>
+											<div class="form__footer">
+													<div class="form__count">4/6</div>
+													<button type="button" class="form__btn btn" aria-label="далі">Далі</button>
+											</div>
+									</div>
+							
+									<div class="form__section">
+											<div class="form__question">
+													<p class="form__label">Як реагуєш, коли хтось каже, що не любить твій улюблений фільм?</p>
+													<div class="options">
+															<div class="options__item">
+																	<input id="answer5_1" type="radio" value="answer1_1" name="question5" class="options__input">
+																	<label for="answer5_1" class="options__label">
+																			<span>1</span> Влаштовую велику презентацію на тему “Чому це — найкращий фільм у світі”.
+																	</label>
+															</div>
+															<div class="options__item">
+																	<input id="answer5_2" type="radio" value="answer1_2" name="question5" class="options__input">
+																	<label for="answer5_2" class="options__label">
+																			<span>2</span> Прикидаюсь, що це жарт і сміюся голосніше за всіх.
+																	</label>
+															</div>
+															<div class="options__item">
+																	<input id="answer5_3" type="radio" value="answer1_3" name="question5" class="options__input">
+																	<label for="answer5_3" class="options__label">
+																			<span>3</span> З цією людиною мені більше нема про що говорити, бай.
+																	</label>
+															</div>
+													</div>
+											</div>
+											<div class="form__footer">
+													<div class="form__count">5/6</div>
+													<button type="button" class="form__btn btn" aria-label="далі">Далі</button>
+											</div>
+									</div>
+							
+									<div class="form__section">
+											<div class="form__question">
+													<p class="form__label">Твоя реакція на несподіваний дощ?</p>
+													<div class="options">
+															<div class="options__item">
+																	<input id="answer6_1" type="radio" value="answer1_1" name="question6" class="options__input">
+																	<label for="answer6_1" class="options__label">
+																			<span>1</span> Проводжу експеримент: скільки води можна зібрати в мій кросівок.
+																	</label>
+															</div>
+															<div class="options__item">
+																	<input id="answer6_2" type="radio" value="answer1_2" name="question6" class="options__input">
+																	<label for="answer6_2" class="options__label">
+																			<span>2</span> Виголошую емоційну промову про красу природи під дощем!
+																	</label>
+															</div>
+															<div class="options__item">
+																	<input id="answer6_3" type="radio" value="answer1_3" name="question6" class="options__input">
+																	<label for="answer6_3" class="options__label">
+																			<span>3</span> Знімаю трендовий танець під дощем, бо це залетить в TikTok.
+																	</label>
+															</div>
+													</div>
+											</div>
+											<div class="form__footer">
+													<div class="form__count">6/6</div>
+													<button type="submit" class="form__btn btn" aria-label="далі">Далі</button>
+											</div>
+									</div>
+								</form>
+								<img class="test__pigeon" src="@img/hero/pigeon.png" width="90" height="100" alt="голова голуба, що виглядує із форми">
+							</div>
+						</div>
+						<div class="test__result">
+							<h2 class="test__title title-main split-both">
+								Твоя Gonzo-таємниця:
+							</h2>
+							<div class="result">
+								<div class="result__top">
+									<div class="result__head">
+										<p class="result__name">
+											Ти <span>Gonzo-конспіратор</span>
+										</p>
+										<div class="result__copy-wr">
+											<button type="button" class="result__copy" aria-label="скопіювати результат">
+												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M22.791 13.0523C23 12.5476 23 11.9059 23 10.625C23 9.34411 23 8.70244 22.791 8.19767C22.6528 7.86392 22.4502 7.56066 22.1948 7.30524C21.9393 7.04981 21.6361 6.8472 21.3023 6.709C20.7976 6.5 20.1559 6.5 18.875 6.5H10.9C9.36 6.5 8.59 6.5 8.00211 6.79944C7.48421 7.06318 7.06318 7.48421 6.79944 8.00211C6.5 8.58878 6.5 9.35878 6.5 10.9V18.875C6.5 20.1559 6.5 20.7976 6.709 21.3023C6.98889 21.9758 7.52422 22.5123 8.19767 22.791C8.70244 23 9.34411 23 10.625 23C11.9059 23 12.5476 23 13.0523 22.791M22.791 13.0523C22.6528 13.3861 22.4502 13.6893 22.1948 13.9448C21.9393 14.2002 21.6361 14.4028 21.3023 14.541C20.7976 14.75 20.1559 14.75 18.875 14.75C17.5941 14.75 16.9524 14.75 16.4477 14.959C16.1139 15.0972 15.8107 15.2998 15.5552 15.5552C15.2998 15.8107 15.0972 16.1139 14.959 16.4477C14.75 16.9524 14.75 17.5941 14.75 18.875C14.75 20.1559 14.75 20.7976 14.541 21.3023C14.4028 21.6361 14.2002 21.9393 13.9448 22.1948C13.6893 22.4502 13.3861 22.6528 13.0523 22.791M22.791 13.0523C22.1337 15.3195 20.9244 17.3883 19.2713 19.0734C17.6182 20.7585 15.573 22.0073 13.3188 22.7079L13.0523 22.791M17.5 6.5V5.4C17.5 3.86 17.5 3.09 17.2006 2.50211C16.9371 1.98439 16.5166 1.56338 15.9991 1.29944C15.41 1 14.64 1 13.1 1H5.4C3.86 1 3.09 1 2.50211 1.29944C1.98421 1.56318 1.56318 1.98421 1.29944 2.50211C1 3.08878 1 3.85878 1 5.4V13.1C1 14.64 1 15.41 1.29944 15.9979C1.56344 16.5161 1.98389 16.9366 2.50211 17.2006C3.08878 17.5 3.86 17.5 5.40122 17.5H6.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+											</button>
+											<span class="copy__txt">
+												Натискай - копіюй!
+												<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M12 -5.24537e-07L6 8L-3.49691e-07 0L12 -5.24537e-07Z" fill="white"/>
+												</svg>
+											</span>
+										</div>
+									</div>
+									<p class="result__txt p-01">
+										Твій ідеальний день: весь день не вставати з ліжка, понабирати купу снеків та напоїв, дивитись серіальчики та відповідати всім, що дуже зайнятий. І ми це схвалюємо!
+									</p>
+									<p class="result__txt p-02">
+										Твій ідеальний смак — <b>Gonzo Кільця</b> цибулі. Пасує до будь-якого фільму та піжами.
+									</p>
+								</div>
+								<div class="result__bottom">
+									<ul class="result__list">
+										<li class="result__item">
+											<span>1</span>
+											Натискай на результат та копіюй його ☝️
+										</li>
+										<li class="result__item">
+											<span>2</span>
+											Залишай свій результат під конкурсним постом та підписуйся на інстаграм Gonzo 💬
+										</li>
+										<li class="result__item">
+											<span>3</span>
+											Вигравай секретний Gonzo-бокс 🥳
+										</li>
+									</ul>
+									<a href="#" class="result__link btn" aria-label="посилання на інстаграм">
+										Тицяй сюди
+									</a>
+									<picture>
+										<source srcset="@img/icons/arr-right.svg" media="(min-width: 46.936em)" type="image/svg+xml">
+										<source srcset="@img/icons/arr-dwn-2.svg" media="(max-width: 46.936em)" type="image/svg+xml">
+										<img class="result__ic" src="@img/icons/arr-right.svg" width="56" height="31" alt="стрілочка що вказує на кнопку">
+									</picture>
+								</div>
+
+								<picture>
+									<source srcset="@img/box/box-pc.png" media="(min-width: 30.061em)" type="image/webp">
+									<source srcset="@img/box/box-mob.png" media="(max-width: 30.061em)" type="image/webp">
+									<img class="result__box" src="@img/box/box-pc.png" width="384" height="434" alt="image">
+								</picture>
+								<img class="result__pack" src="@img/packs/pack-01.png" width="384" height="434" alt="пачка gonzo">
+							</div>
+							<span class="text-copied">
+								Результат скопійовано!
+							</span>
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+		@@include('html/_js.htm',{})
+	</body>
+</html>

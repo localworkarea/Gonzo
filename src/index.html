@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+	@@include('html/_head.htm',{
+	"title":"Gonzo | Home"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('html/_header.htm',{})
+			<main data-fp class="page">
+				<section data-fp-section class="first">
+					<div class="first__container">
+						<div class="first__bg bg-full">
+							<picture>
+								<source srcset="@img/bg/hero-bg-pc.jpg" media="(min-width: 30.061em)" type="image/webp">
+								<source srcset="@img/bg/hero-bg-mob.jpg" media="(max-width: 30.061em)" type="image/webp">
+								<img class="ibg" src="@img/bg/hero-bg-pc.jpg" width="1440" height="800" alt="image">
+							</picture>
+						</div>
+					
+					</div>
+				</section>
+				<section data-fp-section class="second"></section>
+				<section data-fp-section class="third"></section>
+				<section data-fp-section class="fourth"></section>
+				<section data-fp-section class="fifth"></section>
+				<section data-fp-section class="sixth">
+
+				</section>
+			</main>
+		</div>
+		@@include('html/_js.htm',{})
+	</body>
+</html>
