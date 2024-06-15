@@ -15,8 +15,14 @@
 
 .test {
   position: relative;
-  @include adaptiveValue("padding-top", 100, 80,0,1440.98,480.98);
+  // padding-top: toRem(80);
+  @include adaptiveValue("padding-top", 90, 80,0,1440.98,480.98);
   padding-bottom: toRem(50);
+  @media (min-width: toEm(1500.98)){
+    min-height: 100svh;
+    display: grid;
+    align-items: center;
+  }
   // .test__bg
   &__bg {
   }
@@ -56,6 +62,9 @@
 	&__title {
     margin-inline: auto;
     margin-bottom: toRem(30);
+    @media (max-width: toEm(375.98)){
+        margin-bottom: toRem(20);
+    }
 	}
   // .test__form
   &__form {
@@ -100,13 +109,13 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
-    max-width: toRem(1050);
+    max-width: toRem(1000);
     margin-inline: auto;
     
     opacity: 0;
     pointer-events: none;
     transition: opacity .3s ease;
-    @include adaptiveValue("min-width", 1050, 924,0,1440.98,1280.98);
+    @include adaptiveValue("min-width", 1000, 924,0,1440.98,1280.98);
     width: 100%;
     
     &._active {
@@ -123,34 +132,50 @@
   }
   &__question,
   &__count {
-    @include adaptiveValue("margin-bottom", 35, 28,0,1440.98,480.98);
   }
   // .form__question
   &__question {
-    @include adaptiveValue("padding-left", 50, 10,0,1440.98,480.98);
-    @include adaptiveValue("padding-right", 50, 10,0,1440.98,480.98);
+    @include adaptiveValue("padding-left", 45, 10,0,1440.98,480.98);
+    @include adaptiveValue("padding-right", 45, 10,0,1440.98,480.98);
     @include adaptiveValue("padding-top", 35, 20,0,1440.98,480.98);
-    padding-bottom: toRem(50);
     backdrop-filter: blur(24px);
     background: rgba(0, 0, 0, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: toRem(25);
+    @media (min-width:toEm(375.98)){
+      padding-bottom: toRem(40);
+    }
+    @media (max-width: toEm(375.98)){
+      padding-bottom: toRem(20);        
+    }
+
   }
   // .form__label
   &__label {
     font-weight: 600;
-    @include adaptiveValue("font-size", 30, 22,0,1440.98,490.98);
+    @include adaptiveValue("font-size", 28, 22,0,1440.98,490.98);
     @include adaptiveValue("margin-bottom", 30, 20,0,1440.98,480.98);
+    @media (max-width: toEm(375.98)){
+        font-size: toRem(18) !important;
+    }
   }
   // .form__footer
   &__footer {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
+    display: grid;
+    position: relative;
+    justify-content: flex-end;
   }
   // .form__count
   &__count {
     font-weight: 700;
     text-align: center;
     @include adaptiveValue("font-size", 28, 22,0,1440.98,490.98);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
   }
   // .form__btn
   &__btn {
@@ -163,8 +188,9 @@
       opacity: 1;
     }
     @media (min-width:$mobileSmall){
-      align-self: flex-end;
-      width: fit-content;
+      // align-self: flex-end;
+      // width: fit-content;
+      // justify-content: flex-end;
     }
   }
 }
@@ -215,6 +241,9 @@
     @media (min-width:$mobileSmall){
       align-items: center;
     }
+    @media (max-width: toEm(375.98)){
+        font-size: toRem(16) !important;
+    }
   }
 }
 
@@ -240,7 +269,7 @@
     backdrop-filter: blur(24px);
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    @include adaptiveValue("padding", 40, 20,0,1440.98,480.98);
+    @include adaptiveValue("padding", 35, 20,0,1440.98,480.98);
     @include adaptiveValue("margin-bottom", 20, 10,0,1440.98,480.98);
   }
   // .result__head
@@ -248,7 +277,7 @@
     display: flex;
     align-items: center;
     @include adaptiveValue("gap", 20, 10,0,1440.98,480.98);
-    margin-bottom: toRem(15);
+    margin-bottom: toRem(10);
   }
   // .result__name
   &__name {
@@ -261,16 +290,31 @@
     &._copied {
       .copy__txt {
         opacity: 0 !important;
+        transition-delay: 0s !important;
       }
+      
     }
     @media (any-hover: hover){
       &:hover{
         .copy__txt {
-          opacity: 1;
+          animation: shake2 .5s ease-in-out both !important;
         }
       }
     }
     .copy__txt {
+      ._show-result & {
+        animation: shake2 .9s ease-in-out 1.5s both infinite;
+        opacity: 1;
+        transition-delay: 1s;
+        @media (min-width:$mobileSmall){
+          transform: translate(0%,-50%) scale(1);
+        }
+        @media (max-width:$mobileSmall){
+           transform: scale(1); 
+        }
+      }
+      opacity: 0;
+      transition: opacity .55s ease 0s, transform .5s;
       pointer-events: none;
       position: absolute;
       display: block;
@@ -303,14 +347,15 @@
       }
       @media (min-width:$mobileSmall){
         top: 50%;
-        transform: translate(0%,-50%);
+        transform: translate(0%,-50%) scale(0);
         left: calc(100% + 16px);
-        opacity: 0;
+        // opacity: 0;
       }
       @media (max-width:$mobileSmall){
          top:  calc(-100% + -8px);
          left: 0;
-         opacity: 1;
+         transform: scale(0);
+        //  opacity: 1;
       }
     }
 	}
@@ -328,20 +373,21 @@
     @media (any-hover: hover){
       &:hover{
         opacity: 0.6;
+        animation-play-state:paused;
       }
     }
   }
   &__txt,
   &__item {
     font-weight: 400;
-    @include adaptiveValue("font-size", 19, 16,0,1440.98,480.98);
+    @include adaptiveValue("font-size", 18, 16,0,1440.98,480.98);
     line-height: 1.3;
   }
   // .result__txt
   &__txt {
     max-width: 72%;
     &:not(:last-child) {
-      @include adaptiveValue("margin-bottom", 24, 16,0,1440.98,480.98);
+      margin-bottom: toRem(10);
     }
     span {
       font-weight: 700;
@@ -351,12 +397,12 @@
   // .result__bottom
   &__bottom {
     position: relative;
-    @include adaptiveValue("padding", 40, 20,0,1440.98,480.98);
+    @include adaptiveValue("padding", 35, 20,0,1440.98,480.98);
     background-color: #611b1b;
     border: 1px solid rgba(255, 255, 255, 0.3);
     display: grid;
     @media (min-width:toEm(750.98)){
-      gap: toRem(20);
+      column-gap: toRem(20);
       grid-template-columns: 1fr toRem(224);
       align-items: center;
     }
@@ -407,6 +453,8 @@
   }
   // .result__ic
   &__ic {
+    animation: arrow 1s ease-in-out infinite alternate;
+    perspective: 1000px;
     position: absolute;
     height: auto;
     bottom: toRem(20);
@@ -420,55 +468,88 @@
         width: 30px;
     }
   }
-    // .result__box
-    &__box {
-      pointer-events: none;
-      position: absolute;
-      right: 0%;
-      @include adaptiveValue("max-width", 384, 200,0,1440.98,480.98);
-      width: 100%;
-      height: auto;
-      @media (min-width:toEm(1100.98)){
-        transform: translate(40%,-12%);
-      }
-      @media (max-width:toEm(1100.98)){
-        transform: translate(28%,-12%);
-      }
-      @media (min-width:toEm(750.98)){
-        top: 0;
-      }
-      @media (max-width:toEm(750.98)){
-        bottom: 20%;
-      }
+  // .result__box
+  &__box {
+    pointer-events: none;
+    position: absolute;
+    right: 0%;
+    @include adaptiveValue("max-width", 364, 200,0,1440.98,480.98);
+    width: 100%;
+    height: auto;
+    @media (min-width:toEm(1100.98)){
+      transform: translate(37%,-18%);
     }
-    // .result__pack
-    &__pack {
-      pointer-events: none;
-      position: absolute;
-      
-      width: 100%;
-      height: auto;
-      @include adaptiveValue("max-width", 184, 100,0,1440.98,480.98);
-      @media (min-width: toEm(950.98)){
-        left: 0;
-        top: 50%;
-        transform: rotate(-12deg) translate(-65%,-70%);
-      }
-      @media (max-width: toEm(950.98)) and (min-width:toEm(550.98)) {
-        left: 0;
-        top: 100%;
-        transform: rotate(-12deg) translate(-20%,-20%);
-      }
-      @media (max-width: toEm(550.98)){
-        right: 0;
-        top: 15%;
-        transform: rotate(-12deg) translate(20%,-50%);
-      }
-      @media (max-width: toEm(480.98)){
-          top: 22%;
-      }
+    @media (max-width:toEm(1100.98)){
+      transform: translate(28%,-12%);
     }
+    @media (min-width:toEm(750.98)){
+      top: 0;
+    }
+    @media (max-width:toEm(750.98)){
+      bottom: 20%;
+    }
+  }
+  // .result__pack
+  &__pack {
+    pointer-events: none;
+    position: absolute;
+    
+    width: 100%;
+    height: auto;
+    @include adaptiveValue("max-width", 184, 100,0,1440.98,480.98);
+    @media (min-width: toEm(950.98)){
+      left: 0;
+      top: 50%;
+      transform: rotate(-12deg) translate(-65%,-70%);
+    }
+    @media (max-width: toEm(950.98)) and (min-width:toEm(550.98)) {
+      left: 0;
+      top: 100%;
+      transform: rotate(-12deg) translate(-20%,-20%);
+    }
+    @media (max-width: toEm(550.98)){
+      right: 0;
+      top: 15%;
+      transform: rotate(-12deg) translate(20%,-50%);
+    }
+    @media (max-width: toEm(480.98)){
+        top: 22%;
+    }
+  }
 }
+
+@keyframes arrow {
+  from {
+    transform: rotateY(30deg) translate(0,0) scale(1);
+  }
+  to {
+    transform: rotateY(0deg) rotateZ(10deg) translate(-10px, 10px) scale(1);
+  }
+}
+
+@keyframes shake2 {
+  0% {
+    rotate: 0;
+  }
+
+  25% {
+    rotate: 7deg;
+  }
+
+  50% {
+    rotate: -7deg;
+  }
+
+  75% {
+    rotate: 1deg;
+  }
+
+  100% {
+    rotate: 0;
+  }
+}
+
+
 
 .text-copied {
   display: block;
@@ -482,13 +563,16 @@
   background-color:#000;
   padding: toRem(16);
   border: toRem(1) solid #fff;
- @include adaptiveValue("font-size", 20, 16,0,1440.98,480.98);
+  @include adaptiveValue("font-size", 20, 16,0,1440.98,480.98);
   
   pointer-events: none;
   opacity: 0;
   transition: opacity .65s ease;
   &._show {
     opacity: 1;
+  }
+  @media (max-width: $mobileSmall){
+      top: 90%;
   }
 }
 

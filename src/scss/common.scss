@@ -25,7 +25,7 @@
 
 .title-main {
   font-weight: 900;
-  @include adaptiveValue("font-size", 38, 26,0,1440,480.98);
+  @include adaptiveValue("font-size", 36, 22,0,1440,480.98);
   letter-spacing: 2px;
   line-height: 1.2;
   color: #ffdfa7;
@@ -34,7 +34,7 @@
   text-transform: uppercase;
 
   @media (max-width: toEm(375.98)){
-      font-size: toRem(24) !important;
+      font-size: toRem(18) !important;
   }
 
   &.split-both {

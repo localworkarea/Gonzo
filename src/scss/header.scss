@@ -8,8 +8,8 @@
     backdrop-filter: blur(50px);
     -webkit-backdrop-filter: blur(50px);
     background: rgba(255, 255, 255, 0.1);
-    padding-top: toRem(15);
-    padding-bottom: toRem(15);
+    padding-top: toRem(10);
+    padding-bottom: toRem(10);
   }
   @media (max-width:$mobile){
      min-height: toRem(60); 
