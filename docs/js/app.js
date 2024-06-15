@@ -656,9 +656,11 @@
         if (copyButton) {
             function copyToClipboard(text) {
                 const tempTextarea = document.createElement("textarea");
+                tempTextarea.readOnly = true;
                 tempTextarea.value = text;
                 document.body.appendChild(tempTextarea);
                 tempTextarea.select();
+                tempTextarea.setSelectionRange(0, text.length);
                 document.execCommand("copy");
                 document.body.removeChild(tempTextarea);
             }

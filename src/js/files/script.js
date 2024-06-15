@@ -149,38 +149,42 @@ document.addEventListener("DOMContentLoaded", function() {
   // ==========================================================================
 
    // Функция для копирования текста в буфер обмена =========================
-   const copyButton = document.querySelector('.result__copy');
-   const resultLink = document.querySelector('.result__link');
-   const resultNameElement = document.querySelector('.result__name span');
-   const copyWrapper = document.querySelector('.result__copy-wr');
-   const textCopiedElement = document.querySelector('.text-copied');
-   
-   if (copyButton) {
-     function copyToClipboard(text) {
-         const tempTextarea = document.createElement('textarea');
-         tempTextarea.value = text;
-         document.body.appendChild(tempTextarea);
-         tempTextarea.select();
-         document.execCommand('copy');
-         document.body.removeChild(tempTextarea);
-     }
-   
-     copyButton.addEventListener('click', () => {
-         const resultText = resultNameElement.textContent;
-         const textToCopy = `Я ${resultText}`;
-         copyToClipboard(textToCopy);
-   
-         copyWrapper.classList.add('_copied');
-         resultLink.classList.add('_copied');
-         if (textCopiedElement) {
-           textCopiedElement.classList.add('_show');
-     
-           setTimeout(() => {
-               textCopiedElement.classList.remove('_show');
-           }, 800);
-         }
-     });
-   }
+  const copyButton = document.querySelector('.result__copy');
+  const resultLink = document.querySelector('.result__link');
+  const resultNameElement = document.querySelector('.result__name span');
+  const copyWrapper = document.querySelector('.result__copy-wr');
+  const textCopiedElement = document.querySelector('.text-copied');
+
+  if (copyButton) {
+    function copyToClipboard(text) {
+      // Создаем textarea
+      const tempTextarea = document.createElement('textarea');
+      tempTextarea.readOnly = true;
+      tempTextarea.value = text;
+      document.body.appendChild(tempTextarea);
+      tempTextarea.select();
+      tempTextarea.setSelectionRange(0, text.length);
+      document.execCommand('copy');
+      document.body.removeChild(tempTextarea); 
+    }
+
+    copyButton.addEventListener('click', () => {
+      const resultText = resultNameElement.textContent;
+      const textToCopy = `Я ${resultText}`;
+      copyToClipboard(textToCopy);
+
+      copyWrapper.classList.add('_copied');
+      resultLink.classList.add('_copied');
+      if (textCopiedElement) {
+        textCopiedElement.classList.add('_show');
+
+        setTimeout(() => {
+          textCopiedElement.classList.remove('_show');
+        }, 800);
+      }
+    });
+  }
+
  // ===================================================================================
 
 });
