@@ -5,7 +5,36 @@
 	})
 	<body>
 		<div class="wrapper">
-			@@include('html/_header.htm',{})
+			<header class="header">
+				<div class="header__container">
+					<a href="index.html" class="header__logo" aria-label="на головну сторінку">
+						<img src="@img/icons/logo.svg" width="88" height="25" alt="logo Gonzo">
+					</a>
+					<div class="header__menu menu">
+						<nav class="menu__body">
+							<ul class="menu__list">
+								<li class="menu__item">
+									<a href="#" class="menu__link" aria-label="посилання на сторінку Розіграш">Розіграш</a>
+								</li>
+								<li class="menu__item">
+									<a href="test.html" class="menu__link" aria-label="посилання на сторінку Тест">Тест</a>
+								</li>
+								<li class="menu__item">
+									<a href="#" class="menu__link" aria-label="посилання на сторінку Про Gonzo">Про Gonzo</a>
+								</li>
+								<li class="menu__item">
+									<a href="index.html" class="menu__link link-video" aria-label="посилання на Ролик">Ролик</a>
+								</li>
+							</ul>
+						</nav>
+						<button type="button" class="menu__btn">
+							<span class="menu__icon icon-menu">
+								<span></span>
+							</span>
+						</button>
+					</div>
+				</div>
+			</header>
 			<main class="page">
 				<section class="test">
 					<div class="test__bg bg-full">
@@ -17,7 +46,7 @@
 					</div>
 					<div class="test__container">
 						<div class="test__wrapper">
-							<h1 class="test__title title-main split-both">
+							<h1 class="test__title title-main title-s split-both">
 								6 питань — і ТВОЯ<br> GONZO-ТАЄМНИЦЯ готова
 							</h1>
 							<div class="test__body">
@@ -206,7 +235,7 @@
 							</div>
 						</div>
 						<div class="test__result">
-							<h2 class="test__title title-main split-both">
+							<h2 class="test__title title-main title-s split-both">
 								Твоя Gonzo-таємниця:
 							</h2>
 							<div class="result">
@@ -264,7 +293,7 @@
 								<picture>
 									<source srcset="@img/box/box-pc.png" media="(min-width: 30.061em)" type="image/webp">
 									<source srcset="@img/box/box-mob.png" media="(max-width: 30.061em)" type="image/webp">
-									<img class="result__box" src="@img/box/box-pc.png" width="384" height="434" alt="image">
+									<img class="result__box" src="@img/box/box-pc.png" width="384" height="434" alt="подарунковий бокс з пачками Gonzo та іншим">
 								</picture>
 								<img class="result__pack" src="@img/packs/pack-01.png" width="384" height="434" alt="пачка gonzo">
 							</div>

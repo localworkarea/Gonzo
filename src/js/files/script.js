@@ -6,11 +6,11 @@ import { flsModules } from "./modules.js";
 
 
 document.addEventListener("DOMContentLoaded", function() {
-
+  
   const splitTextLines = document.querySelectorAll('.split-lines');
   const splitTextWords = document.querySelectorAll('.split-words');
   const splitTextBoth = document.querySelectorAll('.split-both');
-
+  
   if (splitTextLines.length > 0) {
     splitTextLines.forEach(element => {
       const splitText = new SplitType(element, { types: 'lines' });
@@ -33,13 +33,67 @@ document.addEventListener("DOMContentLoaded", function() {
   if (splitTextBoth.length > 0) {
     splitTextBoth.forEach(element => {
       const splitText = new SplitType(element, { types: 'lines, words' });
-  
+      
       window.addEventListener("resize", function() {
         splitText.split();
       });
     });
   }
 
+   // Функция для обновления индексов и расстановки их заново
+  function updateIndexes() {
+    
+    splitTextBoth.forEach((splitElement) => {
+      const words = splitElement.querySelectorAll('.word');
+      
+      words.forEach((word, index) => {
+        word.style.setProperty('--index', index);
+      });
+    });
+    splitTextLines.forEach((splitElement) => {
+      const words = splitElement.querySelectorAll('.word');
+      
+      words.forEach((word, index) => {
+        word.style.setProperty('--index', index);
+      });
+    });
+
+  }
+  
+  if (splitTextBoth || splitTextLines) {
+    updateIndexes();
+  }
+
+
+
+    // ==   VIDEO YOUTUBE ON CLICK BUTTON ==================================================
+    const videoYoutubeButtons = document.querySelectorAll('.video-youtube__button');
+    videoYoutubeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const youTubeCode = this.getAttribute('data-youtube');
+            let autoplay = true; // Автоплей разрешено (true) или нет (false)
+    
+            let urlVideo = `https://www.youtube.com/embed/${youTubeCode}?rel=0&showinfo=0`;
+    
+            const iframe = document.createElement('iframe');
+            iframe.setAttribute('allowfullscreen', '');
+    
+            if (autoplay) {
+                urlVideo += '&autoplay=1';
+                iframe.setAttribute('allow', 'autoplay; encrypted-media');
+            }
+    
+            iframe.setAttribute('src', urlVideo);
+    
+            const body = this.closest('.video-youtube__body');
+            body.innerHTML = '';
+            body.appendChild(iframe);
+            body.classList.add('video-added');
+        });
+    });
+    // =====================================================================================
+  
+  
 
   // == TEST PAGE ================================================================
   const sections = document.querySelectorAll('.form__section');

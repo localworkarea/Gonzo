@@ -5,12 +5,58 @@
   width: 100%;
 }
 
+section {
+
+}
+
+.second,
+.third,
+.fourth,
+.fifth,
+.sixth {
+  opacity: 0;
+  .loaded & {
+    opacity: 1 !important;
+  }
+}
+
 %container {
   min-height: 100%;
   overflow: hidden;
   position: relative;
 }
+%pt90-80 {
+  @include adaptiveValue("padding-top", 90, 80,0,1440.98,480.98);
+  @media (max-width: toEm(375.98)){
+      padding-top: toRem(70) !important;
+  }
+}
+%flexPBcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: toRem(60); 
+  @media (min-width:$mobileSmall){
+     row-gap: toRem(100); 
+  }
+  @media (max-width:$mobileSmall){
+     row-gap: toRem(170); 
+  }
+}
 
+%footer {
+  margin-inline: auto;
+  position: relative;
+  z-index: 11;
+}
+%guysTransition {
+  transition: opacity .45s, transform .65s ease;
+}
+%headPb50 {
+  @media (min-width:$mobileSmall){
+    padding-top: toRem(50);
+  }
+}
 .bg-full {
   position: absolute;
   top: 0;
@@ -19,27 +65,37 @@
   height: 100%;
   min-height: 100vh;
   min-height: 100svh;
-  z-index: 0;
+  z-index: -1;
   overflow: hidden;
 }
 
 .title-main {
   font-weight: 900;
-  @include adaptiveValue("font-size", 36, 22,0,1440,480.98);
   letter-spacing: 2px;
   line-height: 1.2;
   color: #ffdfa7;
   text-shadow: 0 4px 80px rgba(255, 208, 127, 0.4), 0 4px 25px rgba(255, 208, 127, 0.4);
   text-align: center;
   text-transform: uppercase;
+  position: relative;
+  z-index: 5;
+  
+  &.title-x {
+    @include adaptiveValue("font-size", 52, 40,2,1920.98,1440.98);
+    @include adaptiveValue("font-size", 40, 22,3,1440.98,480.98);
+  }
+  &.title-s {
+    @include adaptiveValue("font-size", 36, 22,0,1440.98,480.98);
+  }
 
   @media (max-width: toEm(375.98)){
       font-size: toRem(18) !important;
   }
+}
 
-  &.split-both {
+  .split-both {
     .line {
-      display: inline-block;
+      // display: inline-block !important;
       width: fit-content !important;
       position: relative;
       margin: 0 auto;
@@ -58,7 +114,6 @@
       }
     }
   }
-}
 
 
 .btn {
@@ -72,6 +127,28 @@
   position: relative;
   box-shadow: 0 5px 30px 0 #ff6b00;
   transition: box-shadow .35s ease, background-image .35s ease;
+  &.btn-b {
+    max-width: toRem(300);
+    font-size: toRem(28);
+    margin-inline: auto;
+    @include adaptiveValue("min-height", 100, 80,0,1440.98,480.98);
+    padding-left: toRem(56);
+    padding-right: toRem(56);
+    @media (min-width:toEm(375.98)){
+        font-size: toRem(28);
+    }
+    @media (max-width: toEm(375.98)){
+        font-size: toRem(22);
+        min-height: toRem(60) !important;
+    }
+  }
+  &.btn-c {
+    max-width: toRem(250);
+    font-size: toRem(22);
+    padding-left: toRem(56);
+    padding-right: toRem(56);
+    min-height: toRem(68);
+  }
   &::before {
     content: "";
     position: absolute;
@@ -93,3 +170,4 @@
     }
   }
 }
+
