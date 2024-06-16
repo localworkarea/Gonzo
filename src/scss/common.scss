@@ -9,17 +9,6 @@ section {
 
 }
 
-.second,
-.third,
-.fourth,
-.fifth,
-.sixth {
-  opacity: 0;
-  .loaded & {
-    opacity: 1 !important;
-  }
-}
-
 %container {
   min-height: 100%;
   overflow: hidden;

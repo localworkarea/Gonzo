@@ -108,14 +108,16 @@ h6 {
   background-color: #fff
 }
 body {
-  background-color: #0a0a0b;
-  opacity: 1
+  background-color: #0a0a0b
 }
 .lock body {
   overflow: hidden;
   touch-action: none;
   -ms-scroll-chaining: none;
   overscroll-behavior: none
+}
+.loaded body {
+  opacity: 1
 }
 .wrapper {
   min-height: 100%;
@@ -202,20 +204,6 @@ body {
   padding-right: 1.25rem;
   margin-inline: auto;
   width: 100%
-}
-.fifth,
-.fourth,
-.second,
-.sixth,
-.third {
-  opacity: 0
-}
-.loaded .fifth,
-.loaded .fourth,
-.loaded .second,
-.loaded .sixth,
-.loaded .third {
-  opacity: 1!important
 }
 .fifth__container,
 .first__container,
