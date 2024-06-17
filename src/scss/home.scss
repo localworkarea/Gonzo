@@ -734,6 +734,7 @@
 .sixth {
   // .sixth__container
   &__container {
+    
     @extend %pt90-80;
     @extend %container;
     padding-bottom: toRem(40);
