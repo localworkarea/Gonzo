@@ -483,7 +483,7 @@
     @extend %container;
     @extend %flexPBcontainer;
     @media (min-width:toEm(375.98)){
-      row-gap: toRem(200);
+      row-gap: toRem(200) !important;
     }
   }
   // .fourth__bg
@@ -551,12 +551,13 @@
     width: 100%;
     height: auto;
     position:relative;
+    z-index: 1;
 	}
 	// .fourth__pack
 	&__pack {
     position: absolute;
     top: 0;
-    
+    z-index: 2;
     width: 100%;
     height: auto;
     // @include adaptiveValue("max-width", 180, 140,2,1920.98,1440.98);
@@ -580,10 +581,10 @@
 }
 
 @keyframes pulse {
-	30% {transform: scale(1.1)  translate(0,-50%) rotate(-5deg);}
+	30% {transform: scale(1.08)  translate(0,-45%) rotate(-5deg);}
 }
 @keyframes pulse2 {
-	30% {transform: scale(1.1) translate(0,-50%) rotate(5deg); }
+	30% {transform: scale(1.1) translate(0,-42%) rotate(5deg); }
 }
 
 
