@@ -594,7 +594,7 @@
     @extend %pt90-80;
     @extend %container;
     @extend %flexPBcontainer;
-    row-gap: 0;
+    row-gap: 0 !important;
     @media (max-width:$mobileSmall){
        padding-bottom: toRem(40); 
     }
@@ -914,7 +914,6 @@
   &__container {
     max-width: toRem(1440);
     position: relative;
-    z-index: 1;
     opacity: 0;
     transition: .75s ease;
     .loaded & {
@@ -1144,6 +1143,7 @@
 
 .result {
   position: relative;
+  z-index: 6;
   @media (min-width:$mobile){
     max-width: toRem(783);
     margin-inline: auto;

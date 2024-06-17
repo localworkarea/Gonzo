@@ -686,7 +686,7 @@ body {
   }
 }
 .fifth__container {
-  row-gap: 0
+  row-gap: 0!important
 }
 .fifth__head {
   position: relative
@@ -869,7 +869,6 @@ body {
 .test__container {
   max-width: 90rem;
   position: relative;
-  z-index: 1;
   opacity: 0;
   transition: .75s ease
 }
@@ -990,7 +989,8 @@ body {
   font-weight: 400
 }
 .result {
-  position: relative
+  position: relative;
+  z-index: 6
 }
 .result__top {
   -webkit-backdrop-filter: blur(24px);

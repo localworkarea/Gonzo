@@ -515,6 +515,13 @@
                         }
                     } else gotoblock_gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTop);
                     e.preventDefault();
+                } else if (targetElement.tagName === "A" && targetElement.href.includes("#")) {
+                    const href = targetElement.getAttribute("href");
+                    const [url, hash] = href.split("#");
+                    if (url && hash) {
+                        e.preventDefault();
+                        window.location.href = `${url}#${hash}`;
+                    }
                 }
             } else if (e.type === "watcherCallback" && e.detail) {
                 const entry = e.detail.entry;
@@ -536,7 +543,14 @@
         if (getHash()) {
             let goToHash;
             if (document.querySelector(`#${getHash()}`)) goToHash = `#${getHash()}`; else if (document.querySelector(`.${getHash()}`)) goToHash = `.${getHash()}`;
-            goToHash ? gotoblock_gotoBlock(goToHash, true, 500, 20) : null;
+            if (goToHash && modules_flsModules.fullpage) {
+                const fullpageSection = document.querySelector(goToHash).closest("[data-fp-section]");
+                const fullpageSectionId = fullpageSection ? +fullpageSection.dataset.fpId : null;
+                if (fullpageSectionId !== null) {
+                    modules_flsModules.fullpage.switchingSection(fullpageSectionId);
+                    document.documentElement.classList.contains("menu-open") ? menuClose() : null;
+                }
+            } else goToHash ? gotoblock_gotoBlock(goToHash, true, 500, 20) : null;
         }
     }
     setTimeout((() => {
