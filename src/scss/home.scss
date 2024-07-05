@@ -959,7 +959,9 @@
     position: relative;
     margin-inline: auto;
     @media (min-width: toEm(1280.98)){
-      width: fit-content;
+      // width: fit-content;
+      width: 100%;
+      max-width: toRem(1000);
     }
 	}
 	// .test__pigeon
@@ -1438,6 +1440,7 @@
 .text-copied {
   display: block;
   position: fixed;
+  z-index: 10;
   top: 80%;
   left: 50%;
   transform: translate(-50%,-50%);
