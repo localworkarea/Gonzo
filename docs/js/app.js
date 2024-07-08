@@ -785,8 +785,7 @@
         const resultNameElement = document.querySelector(".result__name span");
         const copyWrapper = document.querySelector(".result__copy-wr");
         const textCopiedElement = document.querySelector(".text-copied");
-        let isCopied = false;
-        if (copyButton) {
+        if (resultLink) {
             function copyToClipboard(text) {
                 const tempTextarea = document.createElement("textarea");
                 tempTextarea.readOnly = true;
@@ -797,29 +796,22 @@
                 document.execCommand("copy");
                 document.body.removeChild(tempTextarea);
             }
-            copyButton.addEventListener("click", (() => {
+            function handleCopyAndShow() {
                 const resultText = resultNameElement.textContent;
                 const textToCopy = `Я ${resultText}`;
                 copyToClipboard(textToCopy);
                 copyWrapper.classList.add("_copied");
                 resultLink.classList.add("_copied");
-                isCopied = true;
                 if (textCopiedElement) {
                     textCopiedElement.classList.add("_show");
-                    document.documentElement.classList.remove("_show-modal");
                     setTimeout((() => {
                         textCopiedElement.classList.remove("_show");
-                    }), 800);
+                    }), 1e3);
                 }
-            }));
-            resultLink.addEventListener("click", (event => {
-                if (!isCopied) {
-                    event.preventDefault();
-                    document.documentElement.classList.add("_show-modal");
-                    setTimeout((() => {
-                        document.documentElement.classList.remove("_show-modal");
-                    }), 1200);
-                }
+            }
+            if (copyButton) copyButton.addEventListener("click", handleCopyAndShow);
+            if (resultLink) resultLink.addEventListener("click", (event => {
+                handleCopyAndShow();
             }));
         }
     }));

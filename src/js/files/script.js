@@ -239,51 +239,14 @@ document.addEventListener("DOMContentLoaded", function() {
   //   });
   // }
 
-//   const resultLink = document.querySelector('.result__link');
-// const resultNameElement = document.querySelector('.result__name span');
-// const copyWrapper = document.querySelector('.result__copy-wr');
-// const textCopiedElement = document.querySelector('.text-copied');
-
-// if (resultLink) {
-//   function copyToClipboard(text) {
-//     const tempTextarea = document.createElement('textarea');
-//     tempTextarea.readOnly = true;
-//     tempTextarea.value = text;
-//     document.body.appendChild(tempTextarea);
-//     tempTextarea.select();
-//     tempTextarea.setSelectionRange(0, text.length);
-//     document.execCommand('copy');
-//     document.body.removeChild(tempTextarea);
-//   }
-
-//   resultLink.addEventListener('click', (event) => {
-//     const resultText = resultNameElement.textContent;
-//     const textToCopy = `Я ${resultText}`;
-//     copyToClipboard(textToCopy);
-
-//     copyWrapper.classList.add('_copied');
-//     resultLink.classList.add('_copied');
-//     if (textCopiedElement) {
-//       textCopiedElement.classList.add('_show');
-      
-//       setTimeout(() => {
-//         textCopiedElement.classList.remove('_show');
-//       }, 800);
-//     }
-//   });
-// }
-
     const copyButton = document.querySelector('.result__copy');
     const resultLink = document.querySelector('.result__link');
     const resultNameElement = document.querySelector('.result__name span');
     const copyWrapper = document.querySelector('.result__copy-wr');
     const textCopiedElement = document.querySelector('.text-copied');
 
-    let isCopied = false;
-
-    if (copyButton) {
+    if (resultLink) {
       function copyToClipboard(text) {
-        // Создаем textarea
         const tempTextarea = document.createElement('textarea');
         tempTextarea.readOnly = true;
         tempTextarea.value = text;
@@ -293,34 +256,81 @@ document.addEventListener("DOMContentLoaded", function() {
         document.execCommand('copy');
         document.body.removeChild(tempTextarea);
       }
-    
-      copyButton.addEventListener('click', () => {
+
+      function handleCopyAndShow() {
         const resultText = resultNameElement.textContent;
         const textToCopy = `Я ${resultText}`;
         copyToClipboard(textToCopy);
       
         copyWrapper.classList.add('_copied');
         resultLink.classList.add('_copied');
-        isCopied = true;
         if (textCopiedElement) {
           textCopiedElement.classList.add('_show');
-          document.documentElement.classList.remove('_show-modal');
           setTimeout(() => {
             textCopiedElement.classList.remove('_show');
-          }, 800);
+          }, 1000);
         }
-      });
-    
-      resultLink.addEventListener('click', (event) => {
-        if (!isCopied) {
-          event.preventDefault();
-          document.documentElement.classList.add('_show-modal');
-          setTimeout(() => {
-            document.documentElement.classList.remove('_show-modal');
-          }, 1200);
-        }
-      });
+      }
+
+      if (copyButton) {
+        copyButton.addEventListener('click', handleCopyAndShow);
+      }
+
+      if (resultLink) {
+        resultLink.addEventListener('click', (event) => {
+          handleCopyAndShow();
+        });
+      }
     }
+
+    // const copyButton = document.querySelector('.result__copy');
+    // const resultLink = document.querySelector('.result__link');
+    // const resultNameElement = document.querySelector('.result__name span');
+    // const copyWrapper = document.querySelector('.result__copy-wr');
+    // const textCopiedElement = document.querySelector('.text-copied');
+
+    // let isCopied = false;
+
+    // if (copyButton) {
+    //   function copyToClipboard(text) {
+    //     // Создаем textarea
+    //     const tempTextarea = document.createElement('textarea');
+    //     tempTextarea.readOnly = true;
+    //     tempTextarea.value = text;
+    //     document.body.appendChild(tempTextarea);
+    //     tempTextarea.select();
+    //     tempTextarea.setSelectionRange(0, text.length);
+    //     document.execCommand('copy');
+    //     document.body.removeChild(tempTextarea);
+    //   }
+    
+    //   copyButton.addEventListener('click', () => {
+    //     const resultText = resultNameElement.textContent;
+    //     const textToCopy = `Я ${resultText}`;
+    //     copyToClipboard(textToCopy);
+      
+    //     copyWrapper.classList.add('_copied');
+    //     resultLink.classList.add('_copied');
+    //     isCopied = true;
+    //     if (textCopiedElement) {
+    //       textCopiedElement.classList.add('_show');
+    //       document.documentElement.classList.remove('_show-modal');
+    //       setTimeout(() => {
+    //         textCopiedElement.classList.remove('_show');
+    //       }, 800);
+    //     }
+    //   });
+    
+    //   resultLink.addEventListener('click', (event) => {
+    //     if (!isCopied) {
+    //       event.preventDefault();
+    //       document.documentElement.classList.add('_show-modal');
+    //       setTimeout(() => {
+    //         document.documentElement.classList.remove('_show-modal');
+    //       }, 1200);
+    //     }
+    //   });
+    // }
 
 
 
