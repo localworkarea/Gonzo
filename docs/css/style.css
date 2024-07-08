@@ -1090,13 +1090,11 @@ body {
   margin-bottom: .625rem
 }
 .result__link {
-  font-size: 1.375rem;
-  pointer-events: none;
-  opacity: .8
+  font-size: 1.375rem
 }
-.result__link._copied {
-  pointer-events: all;
-  opacity: 1
+._show-modal .result__link {
+  border: .125rem solid red;
+  opacity: .6
 }
 .result__ic {
   -webkit-animation: arrow 1s ease-in-out infinite alternate;
@@ -1197,6 +1195,74 @@ body {
 .text-copied._show {
   opacity: 1
 }
+.modal {
+  position: fixed;
+  z-index: 50;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .55s ease;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.875rem
+}
+._show-modal .modal {
+  opacity: 1;
+  -webkit-animation: shake3 .5s ease-in-out .2s both;
+  animation: shake3 .5s ease-in-out .2s both
+}
+.modal__wrapper {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: .625rem;
+  border: .0625rem solid #fff;
+  background-color: red;
+  color: #fff;
+  text-align: center;
+  line-height: 1.2
+}
+@-webkit-keyframes shake3 {
+  0% {
+    rotate: 0
+  }
+  25% {
+    rotate: 7deg
+  }
+  50% {
+    rotate: -7deg
+  }
+  75% {
+    rotate: 1deg
+  }
+  100% {
+    rotate: 0
+  }
+}
+@keyframes shake3 {
+  0% {
+    rotate: 0
+  }
+  25% {
+    rotate: 7deg
+  }
+  50% {
+    rotate: -7deg
+  }
+  75% {
+    rotate: 1deg
+  }
+  100% {
+    rotate: 0
+  }
+}
 @media (min-width:23.49875em) {
   .btn.btn-b {
     font-size: 1.75rem
@@ -1268,6 +1334,9 @@ body {
     -webkit-transform: translate(0,-50%) scale(0);
     transform: translate(0,-50%) scale(0);
     left: calc(100% + 16px)
+  }
+  .modal__wrapper {
+    padding: 2.5rem 3.125rem
   }
 }
 @media (min-width:40.68625em) {
@@ -1618,6 +1687,11 @@ body {
     max-width: 54.375rem
   }
 }
+@media (min-width:90em) {
+  .modal__wrapper {
+    font-size: 1.75rem
+  }
+}
 @media (min-width:120em) {
   .guys.guys-01 {
     width: 18.5rem
@@ -1633,6 +1707,11 @@ body {
   }
   .video-youtube__body {
     max-width: 62.5rem
+  }
+}
+@media (max-width:20em) {
+  .modal__wrapper {
+    font-size: 1.125rem
   }
 }
 @media (max-width:120.06125em) and (min-height:65.68625em) {
@@ -2150,6 +2229,9 @@ body {
   }
   .text-copied {
     top: 90%
+  }
+  .modal__wrapper {
+    padding: 1.25rem
   }
 }
 @media (max-width:30.68625em) {
@@ -2782,6 +2864,18 @@ body {
     top: 100%;
     -webkit-transform: rotate(-12deg) translate(-20%,-20%);
     transform: rotate(-12deg) translate(-20%,-20%)
+  }
+}
+@media (min-width:20em) and (max-width:90em) {
+  @supports (font-size:clamp(1.125rem ,0.9464285714rem + 0.8928571429vw ,1.75rem)) {
+    .modal__wrapper {
+      font-size: clamp(1.125rem ,.9464285714rem + .8928571429vw ,1.75rem)
+    }
+  }
+  @supports not (font-size:clamp(1.125rem ,0.9464285714rem + 0.8928571429vw ,1.75rem)) {
+    .modal__wrapper {
+      font-size: calc(1.125rem + .625 * (100vw - 20rem)/ 70)
+    }
   }
 }
 @media (any-hover:hover) {
